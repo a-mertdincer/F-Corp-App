@@ -1,0 +1,59 @@
+﻿@model Person
+
+@{
+    ViewData["Title"] = "Contact details";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-12">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-info">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Model.Name @Model.LastName
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="@Model.ImageURL" width="75%" alt="@Model.Name">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>Job Title: </b>
+                            <a asp-controller="Cinemas" asp-action="Details" asp-route-id="@Model.JobTitle">
+                                @Model.JobTitle
+                            </a>
+                        </p>
+                        <p class="card-text"><b>Business Phone: </b>@Model.BusinessPhone</p>
+                        <p class="card-text"><b>Personal Phone: </b>@Model.PersonalPhone</p>
+                        <p class="card-text"><b>E-mail Address: </b>@Model.EmailAddress</p>
+                        <p class="card-text"><b>Address: </b>@Model.Address</p>
+                        <p class="card-text"><b>Start Date: </b>@Model.StartDate</p>
+                        <p class="card-text"><b>Emergency Phone: </b>@Model.EmergencyPhone</p>
+                        <p class="card-text">
+                            <b>Blood Type: </b>
+                            <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.BloodType">
+                                @Model.BloodType
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary float-right" asp-action="Index">
+                                Back to List
+                            </a>
+                            <a href="tel:@Model.BusinessPhone" class="btn btn-success text-white"><i class="bi bi-telephone"></i> Call @Model.Name @Model.LastName</a>
+                            <a href="mailto:@Model.EmailAddress" class="btn btn-info text-white"><i class="bi bi-envelope"></i> Mail @Model.Name @Model.LastName</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
